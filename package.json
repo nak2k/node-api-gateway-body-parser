@@ -1,0 +1,28 @@
+{
+  "name": "api-gateway-body-parser",
+  "version": "0.0.1",
+  "description": "Body parsing middleware for API Gateway",
+  "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/nak2k/node-api-gateway-body-parser/issues"
+  },
+  "dependencies": {
+    "content-type": "^1.0.2",
+    "raw-body": "^2.2.0",
+    "type-is": "^1.6.15"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/nak2k/node-api-gateway-body-parser",
+  "keywords": [],
+  "license": "MIT",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nak2k/node-api-gateway-body-parser.git"
+  },
+  "scripts": {},
+  "files": [
+    "README.md",
+    "lib/"
+  ]
+}
