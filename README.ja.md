@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-npm i api-gateway-body-parser -S
+npm i api-gateway-body-parser
 ```
 
 ## License

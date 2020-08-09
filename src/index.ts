@@ -1,14 +1,32 @@
-const contentType = require('content-type');
-const getRawBody = require('raw-body');
-const typeis = require('type-is');
+import contentType = require('content-type');
+import getRawBody = require('raw-body');
+import typeis = require('type-is');
+import type { Request, Response, NextFunction } from 'express';
 
-module.exports = (options = {}) => {
+interface Base64EncodedRequest extends Request {
+  body: string;
+  isBase64Encoded: boolean;
+}
+
+interface apiGatewayBodyParserOptions {
+  /**
+   * An array of string that `Content-Type` is assumed as binary data. (default: [])
+   */
+  binaryMediaTypes?: string[];
+
+  /**
+   * A maximum limit of the request body. (default: '1mb')
+   */
+  limit?: string;
+}
+
+export function apiGatewayBodyParser(options: apiGatewayBodyParserOptions = {}) {
   const {
     binaryMediaTypes = [],
     limit = '1mb',
   } = options;
 
-  return (req, res, next) => {
+  return (req: Base64EncodedRequest, res: Response, next: NextFunction) => {
     if (!typeis.hasBody(req)) {
       return next();
     }
@@ -44,9 +62,9 @@ module.exports = (options = {}) => {
       })
     }
   };
-};
+}
 
-function getEncoding(req) {
+function getEncoding(req: Request) {
   try {
     return contentType.parse(req).parameters.charset || 'utf8';
   } catch (e) {

@@ -5,13 +5,13 @@ Body parsing middleware for API Gateway.
 ## Installation
 
 ```
-npm i api-gateway-body-parser -S
+npm i api-gateway-body-parser
 ```
 
 ## Usage
 
 ``` javascript
-const apiGatewayBodyParser = require('api-gateway-body-parser');
+import { apiGatewayBodyParser } from 'api-gateway-body-parser';
 
 const app = express();
 
