@@ -1,6 +1,6 @@
 {
   "name": "api-gateway-body-parser",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Body parsing middleware for API Gateway",
   "author": "Kengo Nakatsuka <kengo.nakatsuka@gmail.com>",
   "bugs": {
