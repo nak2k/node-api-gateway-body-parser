@@ -1,12 +1,9 @@
+/// <reference path="../typings/express.d.ts" />
+
 import contentType = require('content-type');
 import getRawBody = require('raw-body');
 import typeis = require('type-is');
-import type { Request, Response, NextFunction } from 'express';
-
-interface Base64EncodedRequest extends Request {
-  body: string;
-  isBase64Encoded: boolean;
-}
+import type { Request, Response, NextFunction, RequestHandler } from 'express';
 
 interface apiGatewayBodyParserOptions {
   /**
@@ -20,13 +17,13 @@ interface apiGatewayBodyParserOptions {
   limit?: string;
 }
 
-export function apiGatewayBodyParser(options: apiGatewayBodyParserOptions = {}) {
+export function apiGatewayBodyParser(options: apiGatewayBodyParserOptions = {}): RequestHandler {
   const {
     binaryMediaTypes = [],
     limit = '1mb',
   } = options;
 
-  return (req: Base64EncodedRequest, res: Response, next: NextFunction) => {
+  return (req: Request, res: Response, next: NextFunction) => {
     if (!typeis.hasBody(req)) {
       return next();
     }
